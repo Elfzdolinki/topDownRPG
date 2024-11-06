@@ -11,14 +11,15 @@ public class BattleState : MonoBehaviour
 
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public GameObject BattleUI;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
 
     public BattleStates state;
 
-    Unit playerUnit;
-    Unit enemyUnit;
+    //Unit playerUnit;
+    //Unit enemyUnit;
 
     // Start is called before the first frame update
     void Start()
@@ -28,17 +29,24 @@ public class BattleState : MonoBehaviour
 
     public void SetupBattle()
     {
+        PlayerController.inBattle = true; // stopuje gracza w  walce
+        BattleUI.SetActive(true);
 
-        GameObject playerGO = playerPrefab;
-        playerGO.GetComponent<Unit>();
+        //GameObject playerGO = playerPrefab;
+        //playerGO.GetComponent<Unit>();
         playerPrefab.transform.position = playerBattleStation.position;
 
-        GameObject enemyGO = enemyPrefab;
-        enemyGO.GetComponent<Unit>();
+        //GameObject enemyGO = enemyPrefab;
+        //enemyGO.GetComponent<Unit>();
         enemyPrefab.transform.position = enemyBattleStation.position;
 
 
-        PlayerController.inBattle = true; // stopuje gracza w  walce 
+         
+
+    }
+
+    public void PlayerTurn()
+    {
 
     }
 }
